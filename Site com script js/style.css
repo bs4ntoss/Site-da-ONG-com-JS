@@ -1,0 +1,390 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   line-height: 1.6;
+    color: #333;
+}
+
+/* espaço no topo para o header fixo evitar sobreposição do conteúdo */
+body {
+    padding-top: 70px; /* ajuste conforme a altura do header (1rem padding + conteúdo) */
+}
+
+/* Header Styles */
+header{
+    background: linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    /* box-shadow corrigido (anterior estava com sintaxe inválida) */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav{
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+}
+.logo{
+    font-size: 1.5rem;
+    font-weight: bold;
+    /* torna o logo clicável/visível como link sem quebrar estilo */
+    /* cor explícita para manter visibilidade no header */
+    color: white;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+}
+
+/* garantir que estados de link mantenham a mesma cor */
+.logo:visited,
+.logo:link,
+.logo:active {
+    color: #fff;
+}
+
+.logo:hover,
+.logo:focus {
+    color: #fff;
+    opacity: 0.95; /* leve feedback visual */
+    text-decoration: none;
+}
+
+.logo:focus {
+    outline: 2px solid rgba(243, 233, 245, 0.8);
+    outline-offset: 3px;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+nav a{
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s ease;
+}
+
+nav a:hover, 
+nav a:active{
+    opacity: 1;
+    font-weight: bold;
+}
+
+nav a {
+    opacity: 0.8; 
+    
+}
+
+/* Hero Section - index */
+
+.hero {
+    /* Gradiente sobre imagem de fundo. Sintaxe anterior estava inválida, o navegador ignorava a propriedade. */
+    background: linear-gradient(135deg, rgba(48, 196, 127, 0.8), rgba(50, 175, 123, 0.8)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f0f0f0" width="1200" height="600"/></svg>');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    margin-top: 0;
+}
+.hero-page {
+    background: linear-gradient(135deg, #57ace6 0%, #37d111 100%);
+    padding: 8rem 2rem 4rem;
+    align-items: center;
+    color: #333;
+    text-align: center;
+        margin-top: 0;
+}
+
+.hero-content, .signup-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero h1,
+.hero-page h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero p,
+.hero-page p {
+    font-size: 1.3rem  ;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    flex-direction: row; /* lado a lado */
+    gap: 1.5rem; /* espaço entre os botões */
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;
+    flex-wrap: wrap; /* quebra em telas pequenas */
+    margin-top: 2rem;
+    width: 100%; /* garante que ocupe toda largura disponível */
+}
+
+.btn-primary, .btn-secondary {
+    flex: 1 1 200px; 
+    max-width: 250px; 
+    padding: 1rem 2.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn-primary{
+    background: #667eea;
+    color: white;
+
+}
+
+.btn-secondary{
+    background: #4c13d1;
+    color: white;
+
+}
+
+.btn-primary:hover .btn-secondary:hover {
+    transform:translateY(-3px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.btn-primary::after, .btn-secondary::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.15);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.btn-primary:hover::after, .btn-secondary:hover::after {
+    top: -20%;
+    left: -20%;
+}
+
+form fieldset {
+   border: 1px solid #ccc;
+   border-radius: 8px;
+   padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+form legend {
+    font-weight: bold;
+    padding: 0 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Layout para formulário de cadastro: linhas horizontais em telas largas, coluna em telas pequenas */
+.cadastro-form {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.cadastro-form .form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: flex-start;
+}
+
+.cadastro-form .form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* botão alinhado à direita dentro da linha */
+.cadastro-form .form-row .btn-primary {
+    align-self: center;
+    padding: 0.9rem 1.8rem;
+}
+
+@media (max-width: 768px) {
+    .cadastro-form .form-row {
+        flex-direction: column;
+    }
+}
+
+.success-message {
+    display: none; 
+    margin-bottom: 1rem;
+    color: green;
+    font-weight: bold;
+    text-align: center;
+}
+
+.about{
+ background: linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+  color: white;
+  align-items: center;
+  text-align: center;
+    padding: 4rem 2rem;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+footer {
+    text-align: center;
+    background: linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+    padding: 2rem;
+    margin-top: 0; /* removido margin-top que causava espaço em branco */
+    color: white;
+    width: 100%;
+    left: 0;
+    right: 0;
+    box-sizing: border-box;
+}
+
+.cadastro-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-in-out;
+    color: white;
+}
+
+.sobre-nós {
+    background: linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+    color: white;
+    margin-bottom: 0;
+}
+
+/* Container e imagem da pata */
+.pata-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.pata-img {
+    max-width: 300px; /* aumentado de 150px para 300px */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.3s ease;
+}
+
+.pata-img:hover {
+    transform: scale(1.1); /* efeito suave de aumento ao passar o mouse */
+}
+
+.project-section {
+     background:  linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+     max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-in-out;
+    color: white;
+    margin-bottom: 0; /* removido espaço antes do footer */
+}
+
+.participation-section {
+    background:  linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+     max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    animation: fadeInUp 1s ease-in-out;
+    color: white;
+    margin-bottom: 0; /* removido espaço antes do footer */
+}
+
+/* Fundo contínuo específico para a página de projetos */
+.page-projeto {
+    /* usa mesmo gradiente/base de .sobre-nós */
+    background: linear-gradient(135deg, #57ace6 0%, #5eac4a 100%);
+    min-height: 100vh;
+}
+
+/* Fazer as sections internas transparentes e manter o conteúdo centralizado */
+.page-projeto .project-section,
+.page-projeto .sobre-nós,
+.page-projeto .participation-section {
+    background: transparent;
+    max-width: 100%;
+    margin: 0;
+    padding: 2rem 0; /* mantém espaçamento vertical, fundo vem do body */
+}
+
+.page-projeto .project-section .project-content,
+.page-projeto .participation-section .participation-content,
+.page-projeto .sobre-nós {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: transparent;
+}
+
+.page-projeto footer {
+    background: transparent; /* herdará o fundo da página */
+   color: white;
+}
